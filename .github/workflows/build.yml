@@ -3,6 +3,9 @@ name: CI
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build
@@ -41,5 +44,3 @@ jobs:
           prerelease: true
           files: '${{ steps.package_build.outputs.package }}'
           generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
